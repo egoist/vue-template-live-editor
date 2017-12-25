@@ -25,6 +25,7 @@
     "vue-template-es2015-compiler": "^1.6.0"
   },
   "devDependencies": {
+    "offline-plugin": "^4.8.5",
     "poi": "^9.6.4",
     "poi-preset-offline": "^9.0.3",
     "vue-template-compiler": "^2.5.13"
