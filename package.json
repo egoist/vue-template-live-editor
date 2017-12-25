@@ -1,0 +1,31 @@
+{
+  "name": "vue-template-live-editor",
+  "productName": "Vue Template Live Editor",
+  "version": "0.0.0",
+  "description": "my praiseworthy project",
+  "repository": {
+    "url": "egoist/vue-template-editor",
+    "type": "git"
+  },
+  "scripts": {
+    "dev": "poi",
+    "build": "poi build"
+  },
+  "author": "egoist <0x142857@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.17.1",
+    "cm-highlight": "^0.1.1",
+    "codemirror": "^5.33.0",
+    "codemirror-emmet": "^1.0.0",
+    "js-beautify": "^1.7.5",
+    "nprogress": "^0.2.0",
+    "vue-cm": "^1.1.0",
+    "vue-router": "^3.0.1",
+    "vue-template-es2015-compiler": "^1.6.0"
+  },
+  "devDependencies": {
+    "poi": "^9.6.4",
+    "vue-template-compiler": "^2.5.13"
+  }
+}
