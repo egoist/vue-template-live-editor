@@ -26,6 +26,7 @@
   },
   "devDependencies": {
     "poi": "^9.6.4",
+    "poi-preset-offline": "^9.0.3",
     "vue-template-compiler": "^2.5.13"
   }
 }
