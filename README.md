@@ -1,22 +1,7 @@
 
 # vue-template-editor
 
-[![NPM version](https://img.shields.io/npm/v/vue-template-editor.svg?style=flat)](https://npmjs.com/package/vue-template-editor) [![NPM downloads](https://img.shields.io/npm/dm/vue-template-editor.svg?style=flat)](https://npmjs.com/package/vue-template-editor) [![CircleCI](https://circleci.com/gh/egoist/vue-template-editor/tree/master.svg?style=shield)](https://circleci.com/gh/egoist/vue-template-editor/tree/master)  [![donate](https://img.shields.io/badge/$-donate-ff69b4.svg?maxAge=2592000&style=flat)](https://github.com/egoist/donate) [![chat](https://img.shields.io/badge/chat-on%20discord-7289DA.svg?style=flat)](https://chat.egoist.moe)
-
-## Install
-
-```bash
-yarn add vue-template-editor
-```
-
-## Usage
-
-```js
-const vueTemplateEditor = require('vue-template-editor')
-
-vueTemplateEditor()
-//=> foo
-```
+https://vue-template.egoist.moe
 
 ## Contributing
 
