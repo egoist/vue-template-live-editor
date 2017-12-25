@@ -2,7 +2,7 @@
   "name": "vue-template-live-editor",
   "productName": "Vue Template Live Editor",
   "version": "0.0.0",
-  "description": "my praiseworthy project",
+  "description": "Explore your Vue template!",
   "repository": {
     "url": "egoist/vue-template-editor",
     "type": "git"
