@@ -87,9 +87,9 @@ export default {
   computed: {
     output() {
       const res = compile(this.code)
-      let code = res.render.toString()
+      let code = `function render() {${res.render.toString()}}`
       if (this.stripWith) {
-        code = stripWith(`function render() {${code}}`)
+        code = stripWith(code)
       }
       return {
         code: highlight(beautify(code, { indent_size: 2 }), { mode: 'javascript' })
