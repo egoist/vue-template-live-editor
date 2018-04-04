@@ -14,11 +14,11 @@
   "author": "egoist <0x142857@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.17.1",
     "cm-highlight": "^0.1.1",
     "codemirror": "^5.33.0",
     "codemirror-emmet": "^1.0.0",
     "js-beautify": "^1.7.5",
+    "lz-string": "^1.4.4",
     "nprogress": "^0.2.0",
     "vue-cm": "^1.1.0",
     "vue-router": "^3.0.1",
@@ -26,7 +26,7 @@
   },
   "devDependencies": {
     "offline-plugin": "^4.8.5",
-    "poi": "^9.6.4",
+    "poi": "^9.6.13",
     "poi-preset-offline": "^9.0.3",
     "vue-template-compiler": "^2.5.13"
   }

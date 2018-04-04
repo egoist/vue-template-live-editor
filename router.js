@@ -11,9 +11,5 @@ export default new Router({
     path: '/',
     component: Editor,
     name: 'home'
-  }, {
-    path: '/gist/:id',
-    component: Editor,
-    name: 'gist'
   }]
 })

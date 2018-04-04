@@ -10,20 +10,16 @@
         <label class="action">
           <input type="checkbox" v-model="stripWith"> Strip with
         </label>
-        <div class="action">
-          <button @click="saveGist">Save Gist</button>
-        </div>
       </div>
     </Header>
     <div class="Main">
-      <code-mirror-editor ref="editor" v-model="code" :options="editorOptions" />
+      <code-mirror-editor ref="editor" @change="handleChange" v-model="code" :options="editorOptions" />
       <pre class="CodeMirror output cm-s-base16-dark"><code v-html="output.code"></code></pre>
     </div>
   </div>
 </template>
 
 <script>
-import axios from 'axios'
 import CodeMirror from 'codemirror'
 import CodeMirrorEditor from 'vue-cm'
 import 'codemirror/mode/htmlmixed/htmlmixed'
@@ -34,6 +30,7 @@ import stripWith from 'vue-template-es2015-compiler'
 import beautify from 'js-beautify'
 import progress from 'nprogress'
 import emmet from 'codemirror-emmet'
+import lzString from 'lz-string'
 
 emmet(CodeMirror)
 
@@ -44,7 +41,7 @@ export default {
 
   data() {
     return {
-      code: this.$route.name === 'gist' ? '<div>Loading...</div>' : `<FinalForm :submit="handleSubmit">
+      code: `<FinalForm :submit="handleSubmit">
   <form slot-scope="props" @submit="props.handleSubmit">
     <FinalField name="email">
       <div slot-scope="props">
@@ -80,8 +77,8 @@ export default {
     }
   },
   created() {
-    if (this.$route.name === 'gist') {
-      this.fetchGist(this.$route.params.id)
+    if (this.$route.query.encoded) {
+      this.decode(this.$route.query.encoded)
     }
   },
   computed: {
@@ -97,25 +94,16 @@ export default {
     }
   },
   methods: {
-    async saveGist() {
-        progress.start()
-        const res = await axios.post(`https://api.github.com/gists`, {
-          description: 'Saved by https://vue-template.egoist.moe',
-          files: {
-            [`index.vue`]: {
-              content: this.code
-            }
-          }
-        })
-        this.$router.push(`/gist/${res.data.id}`)
-        progress.done()
-      },
-      async fetchGist(id) {
-        progress.start()
-        const { data } = await axios.get(`https://api.github.com/gists/${id}?access_token=43f5dfff7c2431bdbc1fe5ee470588a333bcdf1b`)
-        this.code = data.files['index.vue'].content
-        progress.done()
-      }
+    async updateQuery() {
+      const base64 = lzString.compressToBase64(this.code)
+      this.$router.push({ query: { encoded: base64 } })
+    },
+    async decode(base64) {
+      this.code = lzString.decompressFromBase64(base64)
+    },
+    handleChange() {
+      this.updateQuery()
+    }
   }
 }
 </script>
